@@ -1,4 +1,4 @@
-// Funções para Adicionar
+
         function openModal() { 
             const m = document.getElementById('modalAdd');
             if(m) m.style.display = 'flex'; 
@@ -8,7 +8,6 @@
             if(m) m.style.display = 'none'; 
         }
 
-        // Funções para Editar
         function openEditModal(id, name) {
             const modal = document.getElementById('modalEdit');
             const form = document.getElementById('formEdit');
@@ -26,7 +25,6 @@
             if(m) m.style.display = 'none';
         }
 
-        // Fecha o modal se clicar fora da caixa branca
         window.onclick = function(event) {
             if (event.target.className === 'modal') {
                 closeModal();
