@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Gerenciar Produtos</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header class="navbar">
+            <div class="container nav-content">
+                <div class="brand">Projeto <span>MVC</span></div>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/sobre">Sobre</a></li>
+                        <li><a href="/contato">Contato</a></li>
+                        <li><a href="/CRUD">Produtos</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+    <main class="container">
+    <section class="contact-section">
+        <div class="contact-header">
+            <h1>Fale Conosco</h1>
+            <p class="subtitle">Dúvidas sobre o projeto MVC? Mande uma mensagem!</p>
+        </div>
+
+        <div class="contact-wrapper-centered">
+            <div class="contact-form-card">
+                <form action="#" method="POST" onsubmit="alert('Mensagem enviada com sucesso! (Simulação)'); return false;">
+                    <div class="input-group">
+                        <label for="nome">Seu Nome</label>
+                        <input type="text" id="nome" name="nome" placeholder="Ex: João Silva" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="email">Seu E-mail</label>
+                        <input type="email" id="email" name="email" placeholder="email@exemplo.com" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="assunto">Assunto</label>
+                        <select id="assunto" name="assunto">
+                            <option value="duvida">Dúvida Técnica</option>
+                            <option value="sugestao">Sugestão</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="mensagem">Mensagem</label>
+                        <textarea id="mensagem" name="mensagem" rows="5" placeholder="Como podemos ajudar?" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-main">Enviar Mensagem</button>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+
+    
+
+</body>
+</html>

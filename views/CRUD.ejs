@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Gerenciar Produtos</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="container nav-content">
+            <div class="brand">Projeto <span>MVC</span></div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/sobre">Sobre</a></li>
+                    <li><a href="/contato">Contato</a></li>
+                    <li><a href="/CRUD">Produtos</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="products-header">
+            <h1>Catálogo de Produtos</h1>
+            <button class="btn-add" onclick="openModal()">+ Adicionar Novo Produto</button>
+        </div>
+
+        <section class="products-grid">
+            <% produtos.forEach(produto => { %>
+                <div class="product-card">
+                    <div class="card-content">
+                        <h3><%= produto.name %></h3>
+                        <p class="attribute-placeholder">ID: #<%= produto.id %></p>
+                    </div>
+                    <div class="card-actions">
+                        <button onclick="openEditModal('<%= produto.id %>', '<%= produto.name %>')" class="btn-edit">Editar</button>
+                        
+                        <form action="/CRUD/delete/<%= produto.id %>" method="POST" style="display:inline;">
+                            <button type="submit" class="btn-delete">Excluir</button>
+                        </form>
+                    </div>
+                </div>
+            <% }) %>
+        </section>
+    </main>
+
+    <div id="modalAdd" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Novo Produto</h2>
+            <form action="/CRUD" method="POST">
+                <div class="input-group">
+                    <label>Nome do Produto:</label>
+                    <input type="text" name="name" required placeholder="Ex: Teclado Mecânico">
+                </div>
+                <button type="submit" class="btn-main">Salvar Produto</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="modalEdit" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeEditModal()">&times;</span>
+            <h2>Editar Produto</h2>
+            <form id="formEdit" method="POST">
+                <div class="input-group">
+                    <label>Nome do Produto:</label>
+                    <input type="text" name="name" id="editName" required>
+                </div>
+                <button type="submit" class="btn-main">Salvar Alterações</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/js/app.js"></script>
+
+</body>
+</html>
