@@ -2,6 +2,7 @@ const express = require('express');
 const session = require('express-session'); // Troque cookie-parser por isso
 const path = require('path');
 const app = express();
+app.use(express.static(path.join(__dirname, 'public')));
 
 const productRoutes = require('./routes/userRoutes');
 const authController = require('./controllers/authController');
