@@ -42,30 +42,20 @@ Sugestoes de screenshots para valorizar o projeto:
 
 1. **Tela de Login**
    - Pagina: `http://localhost:3000/login`
-   - Mostrar o formulario de autenticacao.
-   - Nome sugerido: `public/screenshots/login.png`
+   - ![Tela de login](public/screenshots/login.png)
 
 2. **Home**
    - Pagina: `http://localhost:3000/`
-   - Mostrar a tela inicial com o card principal e o botao de acesso ao gerenciamento.
-   - Nome sugerido: `public/screenshots/home.png`
+   - ![Home](public/screenshots/home.png)
 
 3. **Catalogo de Produtos**
    - Pagina: `http://localhost:3000/CRUD`
-   - Mostrar alguns produtos cadastrados, com botoes de editar e excluir.
-   - Nome sugerido: `public/screenshots/catalogo-produtos.png`
+   - ![CRUD de produtos](public/screenshots/CRUD.png)
 
 4. **Modal de Cadastro ou Edicao**
    - Pagina: `http://localhost:3000/CRUD`
-   - Abrir o modal de adicionar ou editar produto antes de tirar o print.
-   - Nome sugerido: `public/screenshots/modal-produto.png`
+   - ![Edição e cadastro no CRUD](public/screenshots/CRUD-alterado.png)
 
-Exemplo de como incluir as imagens no README:
-
-```md
-![Tela de login](public/screenshots/login.png)
-![Catalogo de produtos](public/screenshots/catalogo-produtos.png)
-```
 
 ## Pre-requisitos
 

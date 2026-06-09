@@ -1,7 +1,49 @@
-<form action="/login" method="POST">
-    <h1>Login</h1>
-    <% if(error) { %> <p style="color: red;"><%= error %></p> <% } %>
-    <input type="text" name="username" placeholder="Usuário (rafa)" required>
-    <input type="password" name="password" placeholder="Senha (123)" required>
-    <button type="submit">Entrar</button>
-</form>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Projeto MVC</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-content">
+            <div class="brand">Projeto <span>MVC</span></div>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <div class="login-card">
+            <div class="login-header">
+                <h1 class="login-title">Bem-vindo</h1>
+                <div class="divider"></div>
+                <p class="description">Faça login para acessar o sistema</p>
+            </div>
+
+            <% if(error) { %>
+                <div class="login-error"><%= error %></div>
+            <% } %>
+
+            <form action="/login" method="POST" class="login-form">
+                <div class="input-group">
+                    <label for="username">Usuário</label>
+                    <input type="text" id="username" name="username" placeholder="rafa" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" name="password" placeholder="123" required>
+                </div>
+                <button type="submit" class="btn-main" style="width:100%; border:none; cursor:pointer; font-size:1rem;">
+                    Entrar
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 Projeto MVC. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
