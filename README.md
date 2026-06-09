@@ -67,7 +67,7 @@ Antes de comecar, voce precisa ter instalado:
 Clone o repositorio:
 
 ```bash
-git clone <url-do-repositorio>
+git clone https://github.com/Rafael-be/MVC
 ```
 
 Acesse a pasta do projeto:
