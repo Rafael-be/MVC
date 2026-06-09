@@ -1,5 +1,12 @@
 # Projeto MVC - Catalogo de Produtos
 
+![Node.js](https://img.shields.io/badge/Node.js-backend-339933?logo=node.js&logoColor=white)
+![Express](https://img.shields.io/badge/Express-5.2.1-000000?logo=express&logoColor=white)
+![EJS](https://img.shields.io/badge/EJS-templates-B4CA65)
+![JSDoc](https://img.shields.io/badge/JSDoc-documentation-0A7EC2?logo=javascript&logoColor=white)
+![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)
+![GitHub repo](https://img.shields.io/badge/GitHub-Rafael--be%2FMVC-181717?logo=github&logoColor=white)
+
 Aplicacao web desenvolvida com arquitetura MVC para gerenciar um catalogo simples de produtos. O projeto demonstra autenticacao por sessao, rotas protegidas e operacoes de CRUD usando Node.js, Express e templates EJS.
 
 ## Stack Tecnologica
