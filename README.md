@@ -9,7 +9,7 @@
 
 Aplicacao web desenvolvida com arquitetura MVC para gerenciar um catalogo simples de produtos. O projeto demonstra autenticacao por sessao, rotas protegidas e operacoes de CRUD usando Node.js, Express e templates EJS.
 
-## Stack Tecnologica
+## Stack Tecnologico
 
 - **Node.js**: ambiente de execucao JavaScript no backend.
 - **Express**: framework para criacao do servidor e gerenciamento de rotas.
@@ -36,8 +36,6 @@ Aplicacao web desenvolvida com arquitetura MVC para gerenciar um catalogo simple
 
 ## Demonstracao Visual
 
-> Adicione as imagens na pasta `public/screenshots` e atualize os caminhos abaixo quando tirar as capturas.
-
 Sugestoes de screenshots para valorizar o projeto:
 
 1. **Tela de Login**
@@ -54,7 +52,7 @@ Sugestoes de screenshots para valorizar o projeto:
 
 4. **Modal de Cadastro ou Edicao**
    - Pagina: `http://localhost:3000/CRUD`
-   - ![Edição e cadastro no CRUD](public/screenshots/CRUD-alterado.png)
+   - ![Edição e cadastro no CRUD](public/screenshots/CRUD-Alterado.png)
 
 
 ## Pre-requisitos
