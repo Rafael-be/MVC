@@ -1,10 +1,22 @@
-const pool = require('../../config/database');
+const pool = require('../../config/db');
 
 const UsuarioModel = {
-  create: async ({ nome, senha, status }) => {
-    const sql = 'INSERT INTO usuarios (nome, senha, status) VALUES (?, ?, ?);';
-    const [resultado] = await pool.execute(sql, [nome, senha, status]);
-    return { id: resultado.insertId, nome };
+  create: async ({ nome, senha}) => {
+    const sql = 'INSERT INTO usuarios (nome, senha) VALUES (?, ?);';
+    const [resultado] = await pool.execute(sql, [nome, senha]);
+    return { id: resultado.insertId, nome, senha};
+  },
+
+  findByNome: async (nome) => {
+    const sql = 'SELECT * FROM usuarios WHERE nome = ? LIMIT 1;';
+    const [rows] = await pool.execute(sql, [nome]);
+    return rows[0];
+  },
+
+  findById: async (id_usuario) => {
+    const sql = 'SELECT * FROM usuarios WHERE id_usuario = ? LIMIT 1;';
+    const [rows] = await pool.execute(sql, [id_usuario]);
+    return rows[0];
   },
 
   deletar: async (id) => {
@@ -25,11 +37,6 @@ const UsuarioModel = {
     if (dados.senha !== undefined) {
       campos.push('senha = ?');
       valores.push(dados.senha);
-    }
-
-    if (dados.status !== undefined) {
-      campos.push('status = ?');
-      valores.push(dados.status);
     }
 
     if (campos.length === 0) {

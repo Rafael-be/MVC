@@ -7,8 +7,11 @@ const pool = mysql.createPool({
   port: process.env.DB_PORT,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
-  ssl: { rejectUnauthorized: true },
-  waitForConnections: false,
+  ssl: false, 
+  ssl: {
+    rejectUnauthorized: false,
+  },
+  waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0
 });
@@ -16,10 +19,11 @@ const pool = mysql.createPool({
 pool.getConnection()
   .then((connection) => {
     console.log('CONECTADO ao banco de dados MySQL (loja)');
-    connection.release(); 
+    connection.release();
   })
   .catch((err) => {
     console.log('ERRO ao conectar com o MySQL:', err.message);
+    console.log('Verifique se o servidor MySQL realmente aceita SSL, se o certificado é válido e se o CA correto está disponível para o ambiente.');
   });
 
 module.exports = pool;

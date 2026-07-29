@@ -1,12 +1,13 @@
 const jwt = require('jsonwebtoken');
-const Usuario = require('../models/usuarioModel');
+const Usuario = require('../models/userModel');
 
 exports.verificarToken = async (req, res, next) => {
   try {
     let token;
+    const authHeader = req.headers.authorization;
 
-    if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
-      token = req.headers.authorization.split(' ')[1];
+    if (authHeader?.startsWith('Bearer ')) {
+      token = authHeader.split(' ')[1];
     }
 
     if (!token) {
@@ -27,12 +28,23 @@ exports.verificarToken = async (req, res, next) => {
 
     next();
   } catch (err) {
-    res.status(401).json({ message: 'Token invalido ou expirado.' });
+    if (err.name === 'JsonWebTokenError' || err.name === 'TokenExpiredError') {
+      return res.status(401).json({ message: 'Token invalido ou expirado.' });
+    }
+
+    res.status(500).json({ status: 'error', message: err.message });
   }
 };
 
 exports.verificarMesmoUsuario = (req, res, next) => {
-  if (req.params.id && req.user.id_usuario != req.params.id) {
+  const idParam = req.params.id;
+  const idUsuario = req.user?.id_usuario;
+
+  if (!idParam || !idUsuario) {
+    return res.status(403).json({ message: 'Nao foi possivel validar o usuario desta acao.' });
+  }
+
+  if (idParam.toString() !== idUsuario.toString()) {
     return res.status(403).json({ message: 'Token e id nao coincidem ao mesmo usuario' });
   }
 

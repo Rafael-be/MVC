@@ -53,7 +53,7 @@ exports.login = async (req, res) => {
 
 exports.cadastro = async (req, res) => {
   try {
-    const { nome, senha, status } = req.body;
+    const { nome, senha } = req.body;
 
     if (!nome || !senha) {
       return res.status(400).json({ message: 'Por favor, informe nome e senha para cadastro' });
@@ -65,7 +65,7 @@ exports.cadastro = async (req, res) => {
       return res.status(400).json({ message: `O usuario ${nome} ja existe` });
     }
 
-    const novoUsuario = await Usuario.create({ nome, senha: md5(senha), status });
+    const novoUsuario = await Usuario.create({ nome, senha: md5(senha) });
     const novoToken = criarToken(novoUsuario.id);
 
     res.status(201).json({
@@ -84,6 +84,8 @@ exports.cadastro = async (req, res) => {
 exports.deletar = async (req, res) => {
   try {
     verificarPermissaoEstrita(req);
+
+    const usuario = await Usuario.findById(req.params.id);
     const linhasAfetadas = await Usuario.deletar(req.params.id);
 
     if (linhasAfetadas === 0) {
@@ -92,10 +94,10 @@ exports.deletar = async (req, res) => {
 
     res.status(201).json({
       status: 'Success',
-      message: `Usuario ${req.user.nome} foi deletado`
+      message: `Usuario ${usuario.nome} foi deletado`
     });
   } catch (err) {
-    res.status(500).json({ status: 'error', message: err.message });
+    res.status(err.statusCode || 500).json({ status: 'error', message: err.message });
   }
 };
 

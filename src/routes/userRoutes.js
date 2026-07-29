@@ -7,8 +7,8 @@ router.post('/login', userController.login);
 
 router.post('/cadastro', userController.cadastro);
 
-router.delete('/:id', authMiddleware.verificarToken, userController.deletar);
+router.delete('/:id', authMiddleware.verificarToken, authMiddleware.verificarMesmoUsuario, userController.deletar);
 
-router.patch('/:id', authMiddleware.verificarToken, userController.atualizarUsuario);
+router.patch('/:id', authMiddleware.verificarToken, authMiddleware.verificarMesmoUsuario, userController.atualizarUsuario);
 
 module.exports = router;
