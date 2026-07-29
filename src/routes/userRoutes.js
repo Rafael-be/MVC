@@ -1,14 +1,14 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const productController = require("../controllers/userController");
+const userController = require('../controllers/userController');
+const authMiddleware = require('../middlewares/autenticacaoMiddleware');
 
+router.post('/login', userController.login);
 
-router.post("/CRUD", productController.criarProduto);
-router.get("/CRUD", productController.getProdutos);
+router.post('/cadastro', userController.cadastro);
 
+router.delete('/:id', authMiddleware.verificarToken, userController.deletar);
 
-router.post("/CRUD/delete/:id", productController.deletarProduto);
-
-router.post("/CRUD/update/:id", productController.atualizarProduto);
+router.patch('/:id', authMiddleware.verificarToken, userController.atualizarUsuario);
 
 module.exports = router;

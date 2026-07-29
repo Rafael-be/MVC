@@ -17,6 +17,8 @@
     "express": "^5.2.1",
     "express-mysql-session": "^3.0.3",
     "express-session": "^1.19.0",
+    "jsonwebtoken": "^9.0.3",
+    "md5": "^2.3.0",
     "mysql2": "^3.23.1"
   }
 }
